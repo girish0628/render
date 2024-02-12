@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Layout</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <style>
+    /* Add your custom CSS styles here */
+    .left-panel {
+      background-color: #29201d75;
+      min-height: 100vh;
+    }
+    .center-panel {
+      min-height: 100vh;
+      background-color: #20826c;
+    }
+    .dock-menu {
+        position: fixed;
+        bottom: 0;
+        /* left: 0; */
+        width: 100%;
+        /* background-color: #343a40; */
+        color: #fff;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: end;
+        text-align: center;
+    }
+    /* .dock-menu .icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: #212529;
+      border-radius: 50%;
+      text-align: center;
+      margin: 0 10px;
+      overflow: hidden;
+    }
+    .dock-menu .icon img {
+      max-width: 100%;
+      max-height: 100%;
+    } */
+
+    .circular-button {
+        width: 60px;
+        /* height: 50px; */
+        background-color: #3f3f3f;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        transition: background-color 0.3s;
+        text-align: center;
+        margin: 0 10px;
+        overflow: hidden;
+        padding: 5px 5px;
+    }
+    .circular-button:hover {
+      background-color: #0f0f0f; /* Darker shade of the primary color */
+      cursor: pointer;
+    }
+    .circular-button img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .container-info {
+      display: flex;
+      flex-direction: column;
+      /* height: 100vh; */
+       /* Adjust as needed */
+      /* background-color: #29201d75; */
+    }
+    .top {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 2px;
+        background-color: #29201d75;
+        margin-top: 25px;
+    }
+    .box {
+      color: #fff;
+      padding: 5px;
+    }
+    .sub-name{
+        font-family: Georgia, serif;
+        font-size: 22px;
+        word-spacing: 2px;
+        color: #ffffff;
+        font-weight: 500;
+        font-variant: small-caps;
+    }
+    .form-field{
+        font-family: Georgia, serif;
+        font-size: 18px;
+        word-spacing: 2px;
+        color: #ffffff;
+        font-weight: 500;
+        /* font-variant: small-caps; */
+    }
+
+    /* .custom-control-input:checked + .custom-control-label .custom-control-input:checked + .custom-control-label::before {
+      background-color: #007bff;
+    }
+
+    .custom-switch .custom-control-label::before {
+      background-color: #dee2e6;
+    }
+
+    .custom-switch .custom-control-label::after {
+      background-color: #fff;
+    }
+
+    .custom-control-input:checked + .custom-control-label::after {
+      background-color: #fff;
+    }
+
+    .custom-switch .custom-control-input:disabled:checked + .custom-control-label::before {
+      background-color: rgba(0, 123, 255, 0.5);
+    }
+
+    .custom-switch .custom-control-label::before {
+      border-radius: 0.5rem;
+    } */
+
+  </style>
+    <script src="https://unpkg.com/vtk.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Company Name</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left Side Panel -->
+    <div class="col-md-2 left-panel">
+      <h3>Left Side Panel</h3>
+      <div class="container-info">
+        <div class="top">
+          <div class="box">
+            <div style="display: flex;gap: 10px;">
+                <div class="sub-name">Subject Name</div>
+                <div><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="top">
+          <div class="box">
+            <div style="display: flex;gap: 10px;">
+                <div class="form-field">View Component</div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                  </div>
+            </div>
+          </div>
+          <hr style="width: 100%; border-top: 1px solid rgb(213 199 199);"/>
+          <div class="box">
+            <div style="display: flex;gap: 10px;">
+                <div>
+                    <label for="favcolor" class="form-field">Select Color</label>
+                    <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+                </div>
+            </div>
+          </div>
+          <hr style="width: 100%; border-top: 1px solid rgb(213 199 199);"/>
+          <div class="box">
+            <div style="display: flex;gap: 10px;">
+                <div>
+                    <label for="favcolor" class="form-field">Opacity</label>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <!-- <h2>This is the bottom div</h2>
+          <p>This div is at the bottom of the page.</p> -->
+        </div>
+      </div>
+    </div>
+    <!-- Center Panel -->
+    <div class="col-md-10 center-panel" id="container">
+      <h3>Center Panel</h3>
+      <!-- Add your content for the center panel here -->
+    </div>
+    <!-- <div id="container" style="width: 800px; height: 600px;"></div> -->
+
+    <script type="text/javascript">
+        const vtkFullScreenRenderWindow = vtk.Rendering.Misc.vtkFullScreenRenderWindow;
+        const vtkPLYReader = vtk.IO.Geometry.vtkPLYReader;
+        const vtkActor = vtk.Rendering.Core.vtkActor;
+        const vtkMapper = vtk.Rendering.Core.vtkMapper;
+    
+        const renderWindow = vtkFullScreenRenderWindow.newInstance({
+          background: [1, 1, 1], // white background
+          rootContainer: container,
+        });
+        const renderer = renderWindow.getRenderer();
+        const renderWindowInteractor = renderWindow.getInteractor();
+    
+        // Modified loadPLY function to return a promise
+        function loadPLY(filePath, opacity, color) {
+            const reader = vtkPLYReader.newInstance();
+            return reader.setUrl(filePath).then(() => {
+                const mapper = vtkMapper.newInstance();
+                mapper.setInputConnection(reader.getOutputPort());
+    
+                const actor = vtkActor.newInstance();
+                actor.setMapper(mapper);
+                actor.getProperty().setOpacity(opacity);
+                actor.getProperty().setColor(...color);
+    
+                renderer.addActor(actor);
+                return actor; // Return the actor for further use if needed
+            });
+        }
+    
+        // Use Promise.all to wait for all models to load
+        Promise.all([
+            loadPLY('https://skpathak.github.io/left_kidney.ply', 0.3, [0.612, 0.612, 0.612]),
+            loadPLY('https://skpathak.github.io/right_kidney_without_tumor.ply', 0.3, [0.612, 0.612, 0.612]),
+            loadPLY('https://skpathak.github.io/tumor.ply', 0.75, [0.294, 0.922, 0.557]),
+            loadPLY('https://skpathak.github.io/left_urinary.ply', 1, [0.957, 0.773, 0.0]),
+            loadPLY('https://skpathak.github.io/artery_mask.ply', 1, [0.871, 0.165, 0.224]),
+        ]).then(() => {
+            renderer.resetCamera(); // Adjust camera after all models are loaded
+            // renderWindow.render(); // Optionally force a render here
+        });
+    </script>
+  </div>
+</div>
+
+<!-- Dock Menu Icons -->
+<div class="dock-menu">
+    <div class="circular-button">
+        <img src="./img/brain.png" alt="Icon">
+    </div>
+    <div class="circular-button">
+        <img src="./img/cir-1.png" alt="Icon">
+    </div>
+    <div class="circular-button">
+        <img src="./img/kidney.png" alt="Icon">
+    </div>
+    <div class="circular-button">
+        <img src="./img/y-blue.png" alt="Icon">
+    </div>
+    <div class="circular-button">
+        <img src="./img/y-red.png" alt="Icon">
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
